@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Académico Dinámico</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Header y filtros -->
+  <header class="flex flex-col md:flex-row items-start md:items-center justify-between p-6 bg-white shadow">
+    <div>
+      <h1 class="text-2xl font-bold">Dashboard Académico</h1>
+      <p class="text-gray-600">Análisis del desempeño estudiantil</p>
+    </div>
+    <div class="flex space-x-4 mt-4 md:mt-0">
+      <select id="selectPeriod" class="px-4 py-2 bg-white border rounded">
+        <option value="mensual">Mensual</option>
+        <option value="semestral">Semestral</option>
+        <option value="anual">Anual</option>
+      </select>
+      <select id="selectSubject" class="px-4 py-2 bg-white border rounded">
+        <option value="Matemáticas">Matemáticas</option>
+        <option value="Historia">Historia</option>
+        <option value="Física">Física</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="p-6 space-y-6">
+    <!-- Tarjetas KPI -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4" id="kpiCards">
+      <!-- Se generan dinámicamente -->
+    </section>
+
+    <!-- Gráfica de Tendencia -->
+    <section class="bg-white p-6 rounded shadow">
+      <h2 class="text-lg font-semibold mb-4">Tendencia de Rendimiento</h2>
+      <canvas id="chartTrend"></canvas>
+    </section>
+
+    <!-- Gráfica Aprobados vs Reprobados -->
+    <section class="bg-white p-6 rounded shadow">
+      <h2 class="text-lg font-semibold mb-4">Aprobados vs Reprobados</h2>
+      <canvas id="chartPassFail"></canvas>
+    </section>
+
+    <!-- Top 5 Estudiantes Destacados -->
+    <section class="bg-white p-6 rounded shadow">
+      <h2 class="text-lg font-semibold mb-4">Top 5 Estudiantes Destacados</h2>
+      <ul id="top5List" class="space-y-2"></ul>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="data/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
